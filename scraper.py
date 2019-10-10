@@ -39,8 +39,8 @@ def build_db(url):
 			set_url = burl + td[3].cssselect("a")[0].attrib["href"]
 			set_date = td[7].text.strip()
 			set_abbr = td[9].text.strip()
-			if id == "":
-				id = set_abbr
+			if set_id == "":
+				set_id = set_abbr
 			record = {
 				"id" : set_id,
 				"set_name" : set_name,
