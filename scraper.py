@@ -4,6 +4,7 @@ import scraperwiki
 import lxml.html
 import urllib2
 import sys
+from datetime import datetime
 
 burl = "https://bulbapedia.bulbagarden.net"
 url = burl + "/wiki/List_of_Pokemon_Trading_Card_Game_expansions"
@@ -37,7 +38,7 @@ def build_db(url):
 			set_id = td[0].text.strip()
 			set_name = td[3].cssselect("a")[0].text.strip()
 			set_url = burl + td[3].cssselect("a")[0].attrib["href"]
-			set_date = td[7].text.strip()
+			set_date = datetime.strptime(td[7].text.strip(), "%B %d, %Y")
 			set_abbr = td[9].text.strip()
 			if set_id == "":
 				set_id = set_abbr
@@ -49,7 +50,7 @@ def build_db(url):
 				"url" : set_url,
 			}
 			scraperwiki.sqlite.save(unique_keys=["id"], data=record, table_name="sets")
-			parse_set(set_abbr, set_url)
+			#parse_set(set_abbr, set_url)
 
 def parse_set(set, url):
 	counter = 0
