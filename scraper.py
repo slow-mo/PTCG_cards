@@ -50,7 +50,7 @@ def build_db(url):
 				"url" : set_url,
 			}
 			scraperwiki.sqlite.save(unique_keys=["id"], data=record, table_name="sets")
-			#parse_set(set_abbr, set_url)
+			parse_set(set_abbr, set_url)
 
 def parse_set(set, url):
 	counter = 0
