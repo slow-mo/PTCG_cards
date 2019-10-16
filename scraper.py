@@ -45,7 +45,7 @@ def build_db(url):
 			record = {
 				"id" : set_id,
 				"set_name" : set_name,
-				"set_abbr" : set_abbr,
+				"abbr" : set_abbr,
 				"date" : set_date,
 				"url" : set_url,
 			}
