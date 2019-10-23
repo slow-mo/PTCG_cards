@@ -99,4 +99,15 @@ def parse_set(set, url):
 				scraperwiki.sqlite.save(unique_keys=["id"], data=record, table_name="cards")
 	print set + " " + str(counter) + " entries"
 
-build_db(url)
+#build_db(url)
+
+
+record = {
+	"id" : "86",
+	"set_name" : "Cosmic Eclipse",
+	"abbr" : "CEC",
+	"date" : datetime.strptime("November 1, 2019", "%B %d, %Y"),
+	"url" : "https://bulbapedia.bulbagarden.net/wiki/Cosmic_Eclipse_(TCG)",
+}
+scraperwiki.sqlite.save(unique_keys=["id"], data=record, table_name="sets")
+parse_set("CEC", "https://bulbapedia.bulbagarden.net/wiki/Cosmic_Eclipse_(TCG)")
